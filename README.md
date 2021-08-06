@@ -18,7 +18,7 @@
 - [x] Automatically deploy to CloudFlare Pages
 - [x] Update README to have project information
 - [x] Setup GitHub Actions to build & test
-- [ ] Create a Project List page w/ unit & e2e tests
+- [x] Create a Project List page w/ unit & e2e tests
 - [ ] Create a Project Details page w/ unit & e2e tests
 - [ ] Add Task List to Project Details page
 - [ ] Add Project Status to Project List page
