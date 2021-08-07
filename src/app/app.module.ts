@@ -5,10 +5,14 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { ProjectListComponent } from './project-list/project-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProjectDetailsComponent,
+    ProjectListComponent
   ],
   imports: [
     BrowserModule,

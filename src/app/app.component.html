@@ -1,4 +1,15 @@
-<h1>Projects</h1>
-<ul *ngFor="let project of projects">
-  <li>{{project.name}}</li>
-</ul>
+<nav>
+  <ul>
+    <li>
+      <a routerLink="/">Home</a>
+    </li>
+    <li>
+      <a routerLink="/projects">Projects</a>
+    </li>
+  </ul>
+</nav>
+<main>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</main>
