@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
+import { Project } from '../project';
 import { ProjectService } from '../project.service';
 import { ProjectListComponent } from './project-list.component';
 
@@ -13,7 +14,7 @@ describe('ProjectListComponent', () => {
   beforeEach(async () => {
     projectServiceSpy = jasmine.createSpyObj('ProjectService', ['getProjects']);
     projectServiceSpy.getProjects.and.returnValue(of([
-      { id: 1, name: 'Test Project', tasks: []}
+      new Project(1, 'Test Project', [])
     ]));
     await TestBed.configureTestingModule({
       imports: [

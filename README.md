@@ -21,8 +21,7 @@
 - [x] Create a Project List page w/ unit & e2e tests
 - [x] Create a Project Details page w/ unit & e2e tests
 - [x] Add Task List to Project Details page
-- [ ] Add Project Status to Project List page
-- [ ] Add Project Status to Project Details page
+- [x] Add Project Status to Project List & Project Details page
 - [ ] Add abilty to add a Project
 - [ ] Add ability to add a Task
 - [ ] Add ability to remove a Project
