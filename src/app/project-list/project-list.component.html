@@ -1,0 +1,6 @@
+<h1>Projects</h1>
+<ul *ngFor="let project of projects">
+  <li>
+    <a [routerLink]="['/project', project.id]">{{project.name}}</a>
+  </li>
+</ul>
