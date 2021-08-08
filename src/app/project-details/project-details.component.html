@@ -1,5 +1,6 @@
 <div *ngIf="project">
     <h1>{{project.name}}</h1>
+    <div>{{project.status}}</div>
     <div>
         <h2>Tasks</h2>
         <ul *ngFor="let task of project.tasks">
