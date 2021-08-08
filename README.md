@@ -20,9 +20,14 @@
 - [x] Setup GitHub Actions to build & test
 - [x] Create a Project List page w/ unit & e2e tests
 - [x] Create a Project Details page w/ unit & e2e tests
-- [ ] Add Task List to Project Details page
+- [x] Add Task List to Project Details page
 - [ ] Add Project Status to Project List page
 - [ ] Add Project Status to Project Details page
+- [ ] Add abilty to add a Project
+- [ ] Add ability to add a Task
+- [ ] Add ability to remove a Project
+- [ ] Add ability to remove a Task
+- [ ] Add ability to edit a Project
 - [ ] Polish the look and feel
 
 ## Helpful Commands

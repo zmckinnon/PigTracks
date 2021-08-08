@@ -13,7 +13,7 @@ describe('ProjectListComponent', () => {
   beforeEach(async () => {
     projectServiceSpy = jasmine.createSpyObj('ProjectService', ['getProjects']);
     projectServiceSpy.getProjects.and.returnValue(of([
-      { id: 1, name: 'Test Project'}
+      { id: 1, name: 'Test Project', tasks: []}
     ]));
     await TestBed.configureTestingModule({
       imports: [
