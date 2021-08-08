@@ -1,4 +1,11 @@
 <div *ngIf="project">
     <h1>{{project.name}}</h1>
+    <div>
+        <h2>Tasks</h2>
+        <ul *ngFor="let task of project.tasks">
+          <li>{{task.name}}  - {{task.status}}</li>
+        </ul>
+        <p *ngIf="project.tasks.length === 0">No Tasks</p>
+    </div>
 </div>
 <a routerLink="/projects">Back</a>
