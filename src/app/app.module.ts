@@ -9,13 +9,17 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
 import { ProjectListComponent } from './project-list/project-list.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { FormsModule } from '@angular/forms';
+import { ProjectStatusPipe } from './project-status.pipe';
+import { TaskStatusPipe } from './task-status.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectDetailsComponent,
     ProjectListComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    ProjectStatusPipe,
+    TaskStatusPipe
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,6 @@ import { FormsModule } from '@angular/forms';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

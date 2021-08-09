@@ -1,12 +1,24 @@
 <div *ngIf="project">
     <h1>{{project.name}}</h1>
-    <div>{{project.status}}</div>
+    <div>{{project | projectStatus}}</div>
     <div>
         <h2>Tasks</h2>
         <ul *ngFor="let task of project.tasks">
-          <li>{{task.name}}  - {{task.status}}</li>
+          <li>
+            <label>
+              <input type="checkbox" [checked]="task.status | taskStatus" (change)="onChangeTaskStatus(task)">
+              {{task.name}}  - {{task.status}}
+            </label>
+          </li>
         </ul>
         <p *ngIf="project.tasks.length === 0">No Tasks</p>
+        <form>
+          <div>
+            <label for="name">New Task</label>
+            <input id="name" type="text" [(ngModel)]="model.name" name="name" required>
+          </div>
+          <button type="submit" (click)="onAdd()">Add</button>
+        </form>
     </div>
 </div>
 <a routerLink="/projects">Back</a>

@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
-import { Project } from '../project';
 import { ProjectService } from '../project.service';
 import { AddProjectComponent } from './add-project.component';
 
@@ -16,7 +15,7 @@ describe('AddProjectComponent', () => {
 
   beforeEach(async () => {
     projectServiceSpy = jasmine.createSpyObj('ProjectService', ['addProject']);
-    projectServiceSpy.addProject.and.returnValue(of(new Project({ id: 1, name: 'Test Project' })));
+    projectServiceSpy.addProject.and.returnValue(of({ id: 1, name: 'Test Project', tasks: [] }));
     routerSpy = jasmine.createSpyObj('Router', ['navigate']);
     routerSpy.navigate.and.stub();
     await TestBed.configureTestingModule({

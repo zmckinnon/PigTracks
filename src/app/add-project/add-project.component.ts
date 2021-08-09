@@ -9,7 +9,7 @@ import { ProjectService } from '../project.service';
   styleUrls: ['./add-project.component.scss']
 })
 export class AddProjectComponent {
-  model: Project = new Project();
+  model: Project = { name: '', tasks: [] };
 
   constructor(private router: Router, private projectService: ProjectService) { }
 

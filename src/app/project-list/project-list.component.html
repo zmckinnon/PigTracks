@@ -1,7 +1,7 @@
 <h1>Projects</h1>
 <ul *ngFor="let project of projects">
   <li>
-    <a [routerLink]="['/project', project.id]">{{project.name}} - {{project.status}}</a>
+    <a [routerLink]="['/project', project.id]">{{project.name}} - {{project | projectStatus}}</a>
   </li>
 </ul>
 <a routerLink="/project/add">Add Project</a>
