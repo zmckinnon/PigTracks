@@ -26,8 +26,7 @@
 - [x] Add ability to add a Task
 - [x] Add ability to remove a Project
 - [x] Add ability to remove a Task
-- [ ] Add ability to edit a Project
-- [ ] Polish the look and feel
+- [x] Polish the look and feel
 
 ## Helpful Commands
 

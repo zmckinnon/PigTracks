@@ -1,15 +1,10 @@
 <nav>
-  <ul>
-    <li>
-      <a routerLink="/">Home</a>
-    </li>
-    <li>
-      <a routerLink="/projects">Projects</a>
-    </li>
-  </ul>
+  <mat-toolbar color="primary">
+    <a routerLink="/">Pig Tracks</a>
+    <span class="example-spacer"></span>
+    <a routerLink="/projects">Projects</a>
+  </mat-toolbar>
 </nav>
 <main>
-  <div>
-    <router-outlet></router-outlet>
-  </div>
+  <router-outlet></router-outlet>
 </main>
