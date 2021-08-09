@@ -1,6 +1,10 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
@@ -11,22 +15,23 @@ describe('AddProjectComponent', () => {
   let component: AddProjectComponent;
   let fixture: ComponentFixture<AddProjectComponent>;
   let projectServiceSpy: jasmine.SpyObj<ProjectService>;
-  let routerSpy: jasmine.SpyObj<Router>;
+  let router: Router;
 
   beforeEach(async () => {
     projectServiceSpy = jasmine.createSpyObj('ProjectService', ['addProject']);
     projectServiceSpy.addProject.and.returnValue(of({ id: 1, name: 'Test Project', tasks: [] }));
-    routerSpy = jasmine.createSpyObj('Router', ['navigate']);
-    routerSpy.navigate.and.stub();
     await TestBed.configureTestingModule({
       imports: [
         FormsModule,
         RouterTestingModule,
-        HttpClientModule
+        HttpClientModule,
+        MatButtonModule,
+        MatInputModule,
+        MatFormFieldModule,
+        BrowserAnimationsModule
       ],
       providers: [
-        { provide: ProjectService, useValue: projectServiceSpy },
-        { provide: Router, useValue: routerSpy }
+        { provide: ProjectService, useValue: projectServiceSpy }
       ],
       declarations: [ AddProjectComponent ]
     })
@@ -35,6 +40,7 @@ describe('AddProjectComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AddProjectComponent);
+    router = TestBed.inject(Router);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -51,9 +57,10 @@ describe('AddProjectComponent', () => {
     });
 
     it('should call navigate with correct params', () => {
+      const navigateSpy = spyOn(router, 'navigate');
       const compiled = fixture.nativeElement as HTMLElement;
       compiled.querySelector('button')?.click();
-      expect(routerSpy.navigate).toHaveBeenCalledOnceWith(['/project', 1]);
+      expect(navigateSpy).toHaveBeenCalledOnceWith(['/project', 1]);
     });
   });
 });

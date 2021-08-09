@@ -1,8 +1,13 @@
 <h1>Projects</h1>
-<ul *ngFor="let project of projects">
-  <li>
-    <a [routerLink]="['/project', project.id]">{{project.name}} - {{project | projectStatus}}</a>
-    <button (click)="onDeleteClick(project)">Delete</button>
-  </li>
-</ul>
-<a routerLink="/project/add">Add Project</a>
+<a mat-flat-button color="accent" routerLink="/project/add">Add Project</a>
+<div *ngFor="let project of projects">
+  <mat-card class="example-card">
+    <mat-card-title>
+      <a [routerLink]="['/project', project.id]" class="project-name">{{project.name}}</a>
+    </mat-card-title>
+    <mat-card-subtitle>{{project | projectStatus}}</mat-card-subtitle>
+    <mat-card-actions>
+      <button mat-flat-button color="primary" (click)="onDeleteClick(project)" class="delete-button">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
