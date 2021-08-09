@@ -7,15 +7,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { ProjectListComponent } from './project-list/project-list.component';
+import { AddProjectComponent } from './add-project/add-project.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectDetailsComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    AddProjectComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(

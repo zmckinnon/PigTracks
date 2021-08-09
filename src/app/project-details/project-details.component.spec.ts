@@ -15,7 +15,7 @@ describe('ProjectDetailsComponent', () => {
 
   beforeEach(async () => {
     projectServiceSpy = jasmine.createSpyObj('ProjectService', ['getProject']);
-    projectServiceSpy.getProject.and.returnValue(of(new Project(1, 'Test Project', [] )));
+    projectServiceSpy.getProject.and.returnValue(of(new Project({ id: 1, name: 'Test Project' })));
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,

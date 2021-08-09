@@ -1,15 +1,21 @@
 import { Task, TaskStatus } from './task';
 
-export class Project {
+interface IProject {
   id: number;
+  name: string;
+  tasks?: Task[];
+}
+
+export class Project {
+  id?: number;
   name: string;
   tasks: Task[];
   status: ProjectStatus;
 
-  constructor(id: number, name: string, tasks: Task[]) {
-    this.id = id;
-    this.name = name;
-    this.tasks = tasks;
+  constructor(project?: IProject) {
+    this.id = project?.id;
+    this.name = project?.name ?? '';
+    this.tasks = project?.tasks ?? [];
     this.status = this.getStatus();
   };
 
