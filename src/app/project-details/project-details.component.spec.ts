@@ -5,6 +5,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { ProjectStatusPipe } from '../project-status.pipe';
 import { ProjectService } from '../project.service';
+import { TaskStatus } from '../task';
+import { TaskStatusPipe } from '../task-status.pipe';
 import { ProjectDetailsComponent } from './project-details.component';
 
 describe('ProjectDetailsComponent', () => {
@@ -14,8 +16,16 @@ describe('ProjectDetailsComponent', () => {
 
 
   beforeEach(async () => {
-    projectServiceSpy = jasmine.createSpyObj('ProjectService', ['getProject']);
-    projectServiceSpy.getProject.and.returnValue(of({ id: 1, name: 'Test Project', tasks: [] }));
+    projectServiceSpy = jasmine.createSpyObj('ProjectService', ['getProject', 'updateProject']);
+    projectServiceSpy.getProject.and.returnValue(of(
+      {
+        id: 1,
+        name: 'Test Project',
+        tasks: [
+          { name: 'Test Task', status: TaskStatus.ToDo }
+        ]
+      }
+    ));
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
@@ -34,7 +44,8 @@ describe('ProjectDetailsComponent', () => {
       ],
       declarations: [
         ProjectDetailsComponent,
-        ProjectStatusPipe
+        ProjectStatusPipe,
+        TaskStatusPipe
       ]
     })
     .compileComponents();
@@ -57,5 +68,13 @@ describe('ProjectDetailsComponent', () => {
 
   it('should call service once with correct param', () => {
     expect(projectServiceSpy.getProject).toHaveBeenCalledOnceWith(1);
+  });
+
+  describe('onDeleteClick', () => {
+    it('should call service', () => {
+      const compiled = fixture.nativeElement as HTMLElement;
+      compiled.querySelector('button')?.click();
+      expect(projectServiceSpy.updateProject).toHaveBeenCalled();
+    });
   });
 });
