@@ -2,6 +2,7 @@
 <ul *ngFor="let project of projects">
   <li>
     <a [routerLink]="['/project', project.id]">{{project.name}} - {{project | projectStatus}}</a>
+    <button (click)="onDeleteClick(project)">Delete</button>
   </li>
 </ul>
 <a routerLink="/project/add">Add Project</a>

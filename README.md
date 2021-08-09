@@ -24,7 +24,7 @@
 - [x] Add Project Status to Project List & Project Details page
 - [x] Add ability to add a Project
 - [x] Add ability to add a Task
-- [ ] Add ability to remove a Project
+- [x] Add ability to remove a Project
 - [ ] Add ability to remove a Task
 - [ ] Add ability to edit a Project
 - [ ] Polish the look and feel
