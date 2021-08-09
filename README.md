@@ -23,7 +23,7 @@
 - [x] Add Task List to Project Details page
 - [x] Add Project Status to Project List & Project Details page
 - [x] Add ability to add a Project
-- [ ] Add ability to add a Task
+- [x] Add ability to add a Task
 - [ ] Add ability to remove a Project
 - [ ] Add ability to remove a Task
 - [ ] Add ability to edit a Project
