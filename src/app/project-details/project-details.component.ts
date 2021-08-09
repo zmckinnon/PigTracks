@@ -50,6 +50,16 @@ export class ProjectDetailsComponent implements OnInit {
       });
   }
 
+  onDeleteClick(task: Task): void {
+    if (this.project) {
+      this.project.tasks = this.project?.tasks.filter(t => t !== task);
+      this.projectService.updateProject(this.project)
+        .subscribe(project => {
+          this.project = project || { ...this.project } as Project;
+        });
+    }
+  }
+
   private clearTask() : void {
     this.model = { name: '', status: TaskStatus.ToDo };
   }

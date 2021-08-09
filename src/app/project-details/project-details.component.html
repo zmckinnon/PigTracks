@@ -9,6 +9,7 @@
               <input type="checkbox" [checked]="task.status | taskStatus" (change)="onChangeTaskStatus(task)">
               {{task.name}}  - {{task.status}}
             </label>
+            <button (click)="onDeleteClick(task)">Delete</button>
           </li>
         </ul>
         <p *ngIf="project.tasks.length === 0">No Tasks</p>
