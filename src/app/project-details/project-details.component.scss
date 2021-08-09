@@ -1,0 +1,19 @@
+$card-border-color: #777;
+
+.example-card {
+  border: 1px solid $card-border-color;
+  border-radius: 5px;
+  margin: 5px;
+  max-width: 400px;
+
+  mat-card-title {
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+  }
+}
+
+.task-wrapper {
+  display: flex;
+}

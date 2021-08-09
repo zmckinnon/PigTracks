@@ -3,23 +3,22 @@
     <div>{{project | projectStatus}}</div>
     <div>
         <h2>Tasks</h2>
-        <ul *ngFor="let task of project.tasks">
-          <li>
-            <label>
-              <input type="checkbox" [checked]="task.status | taskStatus" (change)="onChangeTaskStatus(task)">
-              {{task.name}}  - {{task.status}}
-            </label>
-            <button (click)="onDeleteClick(task)" class="delete-button">Delete</button>
-          </li>
-        </ul>
+        <div *ngFor="let task of project.tasks" class="task-wrapper">
+          <mat-checkbox [checked]="task.status | taskStatus" (change)="onChangeTaskStatus(task)">{{task.name}}</mat-checkbox>
+          <mat-icon (click)="onDeleteClick(task)" class="delete-button">delete</mat-icon>
+        </div>
         <p *ngIf="project.tasks.length === 0">No Tasks</p>
-        <form>
-          <div>
-            <label for="name">New Task</label>
-            <input id="name" type="text" [(ngModel)]="model.name" name="name" required>
-          </div>
-          <button type="submit" (click)="onAdd()">Add</button>
-        </form>
+        <mat-card class="example-card">
+          <form>
+            <mat-card-title>New Task</mat-card-title>
+            <mat-card-content>
+              <input id="name" type="text" [(ngModel)]="model.name" name="name" required>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-flat-button color="primary" type="submit" (click)="onAdd()">Add</button>
+            </mat-card-actions>
+          </form>
+        </mat-card>
     </div>
 </div>
 <a mat-flat-button color="accent" routerLink="/projects">Back</a>
