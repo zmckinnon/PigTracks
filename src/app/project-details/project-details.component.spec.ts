@@ -1,5 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
@@ -26,10 +29,14 @@ describe('ProjectDetailsComponent', () => {
         ]
       }
     ));
+    projectServiceSpy.updateProject.and.returnValue(of(null));
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule,
+        MatInputModule,
+        MatButtonModule
       ],
       providers: [
         { provide: ProjectService, useValue: projectServiceSpy },
@@ -73,7 +80,7 @@ describe('ProjectDetailsComponent', () => {
   describe('onDeleteClick', () => {
     it('should call service', () => {
       const compiled = fixture.nativeElement as HTMLElement;
-      compiled.querySelector('button')?.click();
+      (compiled.querySelector('.delete-button') as HTMLElement).click();
       expect(projectServiceSpy.updateProject).toHaveBeenCalled();
     });
   });

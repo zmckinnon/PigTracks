@@ -27,6 +27,7 @@
 - [x] Add ability to remove a Project
 - [x] Add ability to remove a Task
 - [x] Polish the look and feel
+- [ ] Add validation
 
 ## Helpful Commands
 

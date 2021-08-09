@@ -1,5 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { ProjectStatusPipe } from '../project-status.pipe';
@@ -16,10 +18,13 @@ describe('ProjectListComponent', () => {
     projectServiceSpy.getProjects.and.returnValue(of([
       { id: 1, name: 'Test Project', tasks: [] }
     ]));
+    projectServiceSpy.deleteProject.and.returnValue(of({ id: 1, name: 'Test Project', tasks: [] }));
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientModule
+        HttpClientModule,
+        MatCardModule,
+        MatButtonModule
       ],
       providers: [
         { provide: ProjectService, useValue: projectServiceSpy }
@@ -48,7 +53,7 @@ describe('ProjectListComponent', () => {
 
   it('should render a project with name: Test Project', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('ul > li')?.textContent).toContain('Test Project');
+    expect(compiled.querySelector('.project-name')?.textContent).toContain('Test Project');
   });
 
   it('should call service once', () => {
@@ -58,7 +63,7 @@ describe('ProjectListComponent', () => {
   describe('onDeleteClick', () => {
     it('should call service', () => {
       const compiled = fixture.nativeElement as HTMLElement;
-      compiled.querySelector('button')?.click();
+      (compiled.querySelector('.delete-button') as HTMLElement).click();
       expect(projectServiceSpy.deleteProject).toHaveBeenCalledOnceWith(1);
     });
   });

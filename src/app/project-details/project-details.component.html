@@ -9,7 +9,7 @@
               <input type="checkbox" [checked]="task.status | taskStatus" (change)="onChangeTaskStatus(task)">
               {{task.name}}  - {{task.status}}
             </label>
-            <button (click)="onDeleteClick(task)">Delete</button>
+            <button (click)="onDeleteClick(task)" class="delete-button">Delete</button>
           </li>
         </ul>
         <p *ngIf="project.tasks.length === 0">No Tasks</p>
@@ -22,4 +22,4 @@
         </form>
     </div>
 </div>
-<a routerLink="/projects">Back</a>
+<a mat-flat-button color="accent" routerLink="/projects">Back</a>

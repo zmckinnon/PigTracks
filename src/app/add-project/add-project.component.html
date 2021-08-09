@@ -1,7 +1,11 @@
+<h1>Add Project</h1>
 <form>
     <div>
-        <label for="name">Name</label>
-        <input id="name" type="text" [(ngModel)]="model.name" name="name" required>
+        <mat-form-field>
+            <mat-label for="name">Name</mat-label>
+            <input matInput id="name" type="text" [(ngModel)]="model.name" name="name" required>
+        </mat-form-field>
     </div>
-    <button type="submit" (click)="onSave()">Save</button>
+    <button mat-flat-button color="primary" type="submit" (click)="onSave()">Save</button>
+    <a mat-flat-button color="accent" routerLink="/projects">Cancel</a>
 </form>
