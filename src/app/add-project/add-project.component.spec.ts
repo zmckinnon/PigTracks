@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -45,18 +45,16 @@ describe('AddProjectComponent', () => {
   });
 
   describe('onSave', () => {
-    it('should call service', fakeAsync(() => {
+    it('should call service', () => {
       const compiled = fixture.nativeElement as HTMLElement;
       compiled.querySelector('button')?.click();
-      tick();
       expect(projectServiceSpy.addProject).toHaveBeenCalled();
-    }));
+    });
 
-    it('should call navigate with correct params', fakeAsync(() => {
+    it('should call navigate with correct params', () => {
       const compiled = fixture.nativeElement as HTMLElement;
       compiled.querySelector('button')?.click();
-      tick();
       expect(routerSpy.navigate).toHaveBeenCalledOnceWith(['/project', 1]);
-    }));
+    });
   });
 });
