@@ -29,4 +29,8 @@ export class ProjectService {
   updateProject(project: Project): Observable<null | Project> {
     return this.http.put<Project>(this.projectsUrl, project, this.httpOptions);
   }
+
+  deleteProject(id: number): Observable<Project> {
+    return this.http.delete<Project>(`${this.projectsUrl}/${id}`);
+  }
 }

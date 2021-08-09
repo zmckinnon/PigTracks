@@ -12,7 +12,7 @@ describe('ProjectListComponent', () => {
   let projectServiceSpy: jasmine.SpyObj<ProjectService>;
 
   beforeEach(async () => {
-    projectServiceSpy = jasmine.createSpyObj('ProjectService', ['getProjects']);
+    projectServiceSpy = jasmine.createSpyObj('ProjectService', ['getProjects', 'deleteProject']);
     projectServiceSpy.getProjects.and.returnValue(of([
       { id: 1, name: 'Test Project', tasks: [] }
     ]));
@@ -53,5 +53,13 @@ describe('ProjectListComponent', () => {
 
   it('should call service once', () => {
     expect(projectServiceSpy.getProjects).toHaveBeenCalledTimes(1);
+  });
+
+  describe('onDeleteClick', () => {
+    it('should call service', () => {
+      const compiled = fixture.nativeElement as HTMLElement;
+      compiled.querySelector('button')?.click();
+      expect(projectServiceSpy.deleteProject).toHaveBeenCalledOnceWith(1);
+    });
   });
 });

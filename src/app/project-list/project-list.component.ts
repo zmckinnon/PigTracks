@@ -20,4 +20,11 @@ export class ProjectListComponent implements OnInit {
     this.projectService.getProjects()
       .subscribe(projects => this.projects = projects);
   }
+
+  onDeleteClick(project: Project): void {
+    this.projectService.deleteProject(project.id!)
+      .subscribe(() => {
+        this.projects = this.projects.filter(p => p !== project);
+      });
+  }
 }
