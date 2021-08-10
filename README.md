@@ -29,7 +29,7 @@
 - [x] Polish the look and feel
 - [ ] Add filters to the Project List
 - [x] Add number of tasks and percentage complete to the Project List card
-- [ ] Store the data in localStorage
+- [x] Store the data in localStorage
 
 ## Didn't Do
 
