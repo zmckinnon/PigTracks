@@ -27,6 +27,12 @@
 - [x] Add ability to remove a Project
 - [x] Add ability to remove a Task
 - [x] Polish the look and feel
+- [ ] Add filters to the Project List
+- [x] Add number of tasks and percentage complete to the Project List card
+- [ ] Store the data in localStorage
+
+## Didn't Do
+
 - [ ] Add validation
 
 ## Helpful Commands

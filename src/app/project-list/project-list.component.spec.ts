@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
+import { ProjectCompletionPipe } from '../project-completion.pipe';
 import { ProjectStatusPipe } from '../project-status.pipe';
 import { ProjectService } from '../project.service';
 import { ProjectListComponent } from './project-list.component';
@@ -31,7 +32,8 @@ describe('ProjectListComponent', () => {
       ],
       declarations: [
         ProjectListComponent,
-        ProjectStatusPipe
+        ProjectStatusPipe,
+        ProjectCompletionPipe
       ],
     }).compileComponents();
   });
