@@ -1,7 +1,9 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { ProjectCompletionPipe } from '../project-completion.pipe';
@@ -25,7 +27,9 @@ describe('ProjectListComponent', () => {
         RouterTestingModule,
         HttpClientModule,
         MatCardModule,
-        MatButtonModule
+        MatButtonModule,
+        MatSelectModule,
+        FormsModule
       ],
       providers: [
         { provide: ProjectService, useValue: projectServiceSpy }

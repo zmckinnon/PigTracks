@@ -1,5 +1,17 @@
 <h1>Projects</h1>
-<a mat-flat-button color="accent" routerLink="/project/add">Add Project</a>
+<div class="row">
+  <div class="col">
+    <a mat-flat-button color="accent" routerLink="/project/add">Add Project</a>
+  </div>
+  <div class="col">
+    <mat-select [(ngModel)]="statusFilter" (selectionChange)="onSelectChange()">
+      <mat-option value="">All</mat-option>
+      <mat-option value="To Do">To Do</mat-option>
+      <mat-option value="In Progress">In Progress</mat-option>
+      <mat-option value="Done">Done</mat-option>
+    </mat-select>
+  </div>
+</div>
 <div *ngFor="let project of projects">
   <mat-card class="example-card">
     <mat-card-title>

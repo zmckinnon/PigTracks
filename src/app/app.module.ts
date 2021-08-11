@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 import { ProjectCompletionPipe } from './project-completion.pipe';
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ProjectCompletionPipe } from './project-completion.pipe';
     MatButtonModule,
     MatInputModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule
   ],
   bootstrap: [AppComponent]
 })
