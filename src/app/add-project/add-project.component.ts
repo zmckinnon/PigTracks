@@ -11,6 +11,8 @@ import { ProjectService } from '../project.service';
 export class AddProjectComponent {
   model: Project = { name: '', tasks: [] };
 
+  public message: string = 'Name is required. Please enter a name.';
+
   constructor(private router: Router, private projectService: ProjectService) { }
 
   onSave(): void {

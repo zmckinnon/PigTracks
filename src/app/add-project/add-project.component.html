@@ -7,7 +7,7 @@
         </mat-form-field>
         <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
             <div *ngIf="name.errors?.['required']">
-                Name is required. Please enter a name.
+                {{message}}
             </div>
         </div>
     </div>
