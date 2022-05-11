@@ -12,10 +12,15 @@
           <form>
             <mat-card-title>New Task</mat-card-title>
             <mat-card-content>
-              <input id="name" type="text" [(ngModel)]="model.name" name="name" required>
+              <input id="name" type="text" [(ngModel)]="model.name" name="name" #name="ngModel" required>
+              <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+                <div *ngIf="name.errors?.['required']">
+                    {{message}}
+                </div>
+            </div>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-flat-button color="primary" type="submit" (click)="onAdd()">Add</button>
+              <button mat-flat-button color="primary" type="submit" (click)="onAdd()" [disabled]="!name.valid">Add</button>
             </mat-card-actions>
           </form>
         </mat-card>

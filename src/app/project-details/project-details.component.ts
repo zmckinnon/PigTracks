@@ -14,6 +14,8 @@ export class ProjectDetailsComponent implements OnInit {
   projectId?: number;
   model: Task = { name: '', status: TaskStatus.ToDo };
 
+  public message: string = 'Task is required. Please enter a task.';
+
   constructor(private route: ActivatedRoute, private projectService: ProjectService) { }
 
   ngOnInit(): void {
