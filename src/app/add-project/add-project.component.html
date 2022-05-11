@@ -3,9 +3,14 @@
     <div>
         <mat-form-field>
             <mat-label for="name">Name</mat-label>
-            <input matInput id="name" type="text" [(ngModel)]="model.name" name="name" required>
+            <input matInput id="name" type="text" [(ngModel)]="model.name" name="name" #name="ngModel" required>
         </mat-form-field>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+            <div *ngIf="name.errors?.['required']">
+                Name is required. Please enter a name.
+            </div>
+        </div>
     </div>
-    <button mat-flat-button color="primary" type="submit" (click)="onSave()">Save</button>
+    <button mat-flat-button color="primary" type="submit" (click)="onSave()" [disabled]="!name.valid">Save</button>
     <a mat-flat-button color="accent" routerLink="/projects">Cancel</a>
 </form>
