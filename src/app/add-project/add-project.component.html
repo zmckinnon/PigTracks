@@ -1,11 +1,37 @@
 <h1>Add Project</h1>
 <form>
-    <div>
-        <mat-form-field>
-            <mat-label for="name">Name</mat-label>
-            <input matInput id="name" type="text" [(ngModel)]="model.name" name="name" required>
-        </mat-form-field>
+  <div>
+    <mat-form-field>
+      <mat-label for="name">Name</mat-label>
+      <input
+        matInput
+        [(ngModel)]="model.name"
+        name="name"
+        id="name"
+        type="text"
+        minlength="4"
+        required
+        #name="ngModel"
+      />
+    </mat-form-field>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+      <mat-error *ngIf="name.errors?.['required']">Name is required.</mat-error>
+      <mat-error *ngIf="name.errors?.['minlength']">
+        Name must be at least 4 characters long.
+      </mat-error>
+      <mat-error *ngIf="name.errors?.['forbiddenName']"
+        >Name cannot be Bob.</mat-error
+      >
     </div>
-    <button mat-flat-button color="primary" type="submit" (click)="onSave()">Save</button>
-    <a mat-flat-button color="accent" routerLink="/projects">Cancel</a>
+  </div>
+  <button
+    mat-flat-button
+    color="primary"
+    type="submit"
+    [disabled]="!name.valid"
+    (click)="onSave()"
+  >
+    Save
+  </button>
+  <a mat-flat-button color="accent" routerLink="/projects">Cancel</a>
 </form>

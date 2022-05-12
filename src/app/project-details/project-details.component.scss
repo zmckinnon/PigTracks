@@ -17,3 +17,9 @@ $card-border-color: #777;
 .task-wrapper {
   display: flex;
 }
+
+.mat-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
