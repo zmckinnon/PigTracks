@@ -17,6 +17,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { ProjectCompletionPipe } from './project-completion.pipe';
+import { InputComponent } from './input/input.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProjectCompletionPipe } from './project-completion.pipe';
     AddProjectComponent,
     ProjectStatusPipe,
     TaskStatusPipe,
-    ProjectCompletionPipe
+    ProjectCompletionPipe,
+    InputComponent
   ],
   imports: [
     BrowserModule,

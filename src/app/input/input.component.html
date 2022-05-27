@@ -1,0 +1,10 @@
+<mat-form-field>
+    <mat-label [attr.for]="id"> {{ label }} </mat-label>
+    <input ngModel #inputTpl [errorStateMatcher]="errorState" matInput [id]="id" [type]="type"
+        (keyup)="onChange(inputTpl.value)" (focus)="onTouched(inputTpl.value)">
+
+    <mat-error>
+        <ng-content></ng-content>
+    </mat-error>
+</mat-form-field>
+{{invalidForm}}
