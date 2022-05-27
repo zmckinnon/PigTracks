@@ -1,11 +1,11 @@
 <h1>Add Project</h1>
 <form>
-    <div>
-        <mat-form-field>
-            <mat-label for="name">Name</mat-label>
-            <input matInput id="name" type="text" [(ngModel)]="model.name" name="name" required>
-        </mat-form-field>
-    </div>
+    <app-input label="name" name="name" #name="ngModel" [(ngModel)]="model.name" required type="text"
+        [invalidForm]="name.invalid && name.touched">
+        <ng-container *ngIf="name.errors?.required">
+            this is required error.
+        </ng-container>
+    </app-input>
     <button mat-flat-button color="primary" type="submit" (click)="onSave()">Save</button>
     <a mat-flat-button color="accent" routerLink="/projects">Cancel</a>
 </form>

@@ -1,24 +1,32 @@
 <div *ngIf="project">
-    <h1>{{project.name}}</h1>
-    <div>{{project | projectStatus}}</div>
-    <div>
-        <h2>Tasks</h2>
-        <div *ngFor="let task of project.tasks" class="task-wrapper">
-          <mat-checkbox [checked]="task.status | taskStatus" (change)="onChangeTaskStatus(task)">{{task.name}}</mat-checkbox>
-          <mat-icon (click)="onDeleteClick(task)" class="delete-button">delete</mat-icon>
-        </div>
-        <p *ngIf="project.tasks.length === 0">No Tasks</p>
-        <mat-card class="example-card">
-          <form>
-            <mat-card-title>New Task</mat-card-title>
-            <mat-card-content>
-              <input id="name" type="text" [(ngModel)]="model.name" name="name" required>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-flat-button color="primary" type="submit" (click)="onAdd()">Add</button>
-            </mat-card-actions>
-          </form>
-        </mat-card>
+  <h1>{{project.name}}</h1>
+  <div>{{project | projectStatus}}</div>
+  <div>
+    <h2>Tasks</h2>
+    <div *ngFor="let task of project.tasks" class="task-wrapper">
+      <mat-checkbox [checked]="task.status | taskStatus" (change)="onChangeTaskStatus(task)">{{task.name}}
+      </mat-checkbox>
+      <mat-icon (click)="onDeleteClick(task)" class="delete-button">delete</mat-icon>
     </div>
+    <p *ngIf="project.tasks.length === 0">No Tasks</p>
+    <mat-card class="example-card">
+      <form>
+        <mat-card-title>New Task</mat-card-title>
+        <mat-card-content>
+
+          <app-input #name="ngModel" label="Task title" [(ngModel)]="model.name" required
+            [invalidForm]="name.dirty && name.invalid" name="name">
+            <ng-container *ngIf="name.errors?.required">
+              Please enter a task title.
+            </ng-container>
+          </app-input>
+
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-flat-button color="primary" type="submit" (click)="onAdd()">Add</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </div>
 </div>
 <a mat-flat-button color="accent" routerLink="/projects">Back</a>
